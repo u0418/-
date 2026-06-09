@@ -1159,6 +1159,7 @@ export const BirdSvg: React.FC<BirdSvgProps> = ({ bird, isSilhouette = false, cu
         {customDrawingUrl && !isSilhouette ? (
           <image
             href={customDrawingUrl}
+            xlinkHref={customDrawingUrl}
             x="0"
             y="0"
             width="240"

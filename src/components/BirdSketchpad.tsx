@@ -643,6 +643,33 @@ export const BirdSketchpad: React.FC<BirdSketchpadProps> = ({
 
       </div>
 
+      {/* Invisible auxiliary SVG to host the "#crayon-sketch" filter needed for the HTML5 canvas style */}
+      <svg className="absolute w-0 h-0 hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="crayon-sketch" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="edgeNoise" />
+            <feDisplacementMap in="SourceGraphic" in2="edgeNoise" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="wobblyEdges" />
+            <feTurbulence type="fractalNoise" baseFrequency="1.15" numOctaves="4" result="grainNoise" />
+            <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0
+                                                0.33 0.33 0.33 0 0
+                                                0.33 0.33 0.33 0 0
+                                                0 0 0 1 0" in="grainNoise" result="greyGrain" />
+            <feComposite in="wobblyEdges" in2="greyGrain" operator="arithmetic" k1="0.25" k2="0.85" k3="0" k4="0" result="pencilTextured" />
+            <feMorphology operator="dilate" radius="0.3" in="SourceGraphic" result="expanded" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0.16
+                                                0 0 0 0 0.13
+                                                0 0 0 0 0.10
+                                                0 0 0 0 0.45 0" in="expanded" result="sketchOutline" />
+            <feDisplacementMap in="sketchOutline" in2="edgeNoise" scale="1.2" xChannelSelector="R" yChannelSelector="G" result="wobblyOutline" />
+            <feMerge result="finalArtwork">
+              <feMergeNode in="wobblyOutline" />
+              <feMergeNode in="pencilTextured" />
+            </feMerge>
+            <feDropShadow in="finalArtwork" dx="1.0" dy="2.5" stdDeviation="3.5" floodColor="#2F2314" floodOpacity="0.10" />
+          </filter>
+        </defs>
+      </svg>
+
     </div>
   );
 };
