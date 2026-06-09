@@ -1,0 +1,6 @@
+{
+  "name": "臺灣特有種鳥類觀測手札 Field Journal of Taiwan’s Endemic Birds",
+  "description": "扮演野生動物觀察家，穿梭於臺灣海拔山林，用手繪與對焦快門，採集並記錄 32 種珍貴的臺灣特有種鳥類。 / Act as a wildlife observer exploring Taiwan's elevation forests to collect and record 32 precious endemic bird species with focal shutters and hand-drawn sketched illustration canvases.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
