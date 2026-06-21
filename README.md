@@ -1,6 +1,6 @@
 # 臺灣特有種鳥類觀測手札 Field Journal of Taiwan’s Endemic Birds
 
-### 線上體驗  Live Demo
+
 https://taiwan-endemic-birds-field-journal.vercel.app](https://taiwan-endemic-birds-field-journal.vercel.app
 
 ---
